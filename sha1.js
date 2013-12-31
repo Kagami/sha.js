@@ -62,10 +62,10 @@ Sha1.prototype._update = function (array) {
   var w = this._w
 
   for(var j = 0; j < 80; j++) {
-    var W = w[j]
-      = j < 16
+    var W =
+      j < 16
       ? X.getUint32(j*4, BE)
-      : rol(w[j - 3] ^ w[j -  8] ^ w[j - 14] ^ w[j - 16], 1)
+      : (w[j] = rol(w[j - 3] ^ w[j -  8] ^ w[j - 14] ^ w[j - 16], 1))
 
     var t =
       add(

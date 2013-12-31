@@ -5,7 +5,7 @@ module.exports = Hash
 
 //prototype class for hash functions
 function Hash (blockSize, finalSize) {
-  this._block = new Uint32Array(blockSize/4)
+  this._block = this._w //new Uint32Array(blockSize/4)
   this._dv = new DataView(this._block.buffer)
   this._finalSize = finalSize
   this._blockSize = blockSize
